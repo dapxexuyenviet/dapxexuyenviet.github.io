@@ -12,22 +12,12 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout dapxexuyenviet
-        uses: actions/checkout@v4
-        with:
-          repository: dapxexuyenviet/dapxexuyenviet
-          path: dapxexuyenviet
-
       - name: Checkout github page
         uses: actions/checkout@v4
         with:
           repository: dapxexuyenviet/dapxexuyenviet.github.io
           submodules: "recursive"
           path: dapxexuyenviet.github.io
-
-      - name: Copy wiki to main repository
-        run: |
-          cp -r dapxexuyenviet/* dapxexuyenviet.github.io
 
       - name: Setup Git
         run: |
@@ -38,14 +28,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          cd dapxexuyenviet.github.io
-          for file in *.mdx; do
-            mv -- "$file" "${file%.mdx}.md"
-          done
+          cd dapxexuyenviet.vn
+          git submodule update --init --recursive
+          cd pages
+          git fetch
+          git checkout origin/main
+          cd ..
           if git diff --quiet; then
             echo "No changes to commit"
           else
             git add .
-            git commit -m "Update wiki - $(date +%Y-%m-%d)"
+            git commit -m "Update pages - $(date +%Y-%m-%d)"
             git push https://${GITHUB_TOKEN}@github.com/dapxexuyenviet/dapxexuyenviet.github.io.git HEAD:main
           fi
