@@ -12,11 +12,11 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout dapxexuyenviet
-      #   uses: actions/checkout@v4
-      #   with:
-      #     repository: dapxexuyenviet/dapxexuyenviet
-      #     path: dapxexuyenviet
+      - name: Checkout dapxexuyenviet
+        uses: actions/checkout@v4
+        with:
+          repository: dapxexuyenviet/dapxexuyenviet
+          path: dapxexuyenviet
 
       - name: Checkout github page
         uses: actions/checkout@v4
@@ -25,9 +25,9 @@ jobs:
           submodules: "recursive"
           path: dapxexuyenviet.github.io
 
-      # - name: Copy wiki to main repository
-      #   run: |
-      #     cp -r dapxexuyenviet/* dapxexuyenviet.github.io
+      - name: Copy wiki to main repository
+        run: |
+          cp -r dapxexuyenviet/* dapxexuyenviet.github.io
 
       - name: Setup Git
         run: |
@@ -39,11 +39,9 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           cd dapxexuyenviet.github.io
-          git submodule update --init --recursive
-          cd wiki
-          git fetch
-          git checkout origin/main
-          for file in *.mdx; mv --  "$file" "${file%.mdx}.md";
+          for file in *.mdx; do
+            mv -- "$file" "${file%.mdx}.md"
+          done
           cd ..
           if git diff --quiet; then
             echo "No changes to commit"
