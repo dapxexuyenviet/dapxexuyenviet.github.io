@@ -1,43 +1,43 @@
-name: "Publish from dapxexuyenviet"
+# name: "Publish from dapxexuyenviet"
 
-on:
-  schedule:
-    - cron: "0 0,6,12,18 * * *" # runs every day at midnight
-  # push:
-  #   branches:
-  #     - main
-  workflow_dispatch: # allows manual triggering of the workflow
+# on:
+#   schedule:
+#     - cron: "0 0,6,12,18 * * *" # runs every day at midnight
+#   # push:
+#   #   branches:
+#   #     - main
+#   workflow_dispatch: # allows manual triggering of the workflow
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout github page
-        uses: actions/checkout@v4
-        with:
-          repository: dapxexuyenviet/dapxexuyenviet.github.io
-          submodules: "recursive"
-          path: dapxexuyenviet.github.io
+# jobs:
+#   update:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout github page
+#         uses: actions/checkout@v4
+#         with:
+#           repository: dapxexuyenviet/dapxexuyenviet.github.io
+#           submodules: "recursive"
+#           path: dapxexuyenviet.github.io
 
-      - name: Setup Git
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
+#       - name: Setup Git
+#         run: |
+#           git config --global user.name "GitHub Action"
+#           git config --global user.email "action@github.com"
 
-      - name: Push to GitHub Pages
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          cd dapxexuyenviet.vn
-          git submodule update --init --recursive
-          cd pages
-          git fetch
-          git checkout origin/main
-          cd ..
-          if git diff --quiet; then
-            echo "No changes to commit"
-          else
-            git add .
-            git commit -m "Update pages - $(date +%Y-%m-%d)"
-            git push https://${GITHUB_TOKEN}@github.com/dapxexuyenviet/dapxexuyenviet.github.io.git HEAD:main
-          fi
+#       - name: Push to GitHub Pages
+#         env:
+#           GITHUB_TOKEN: ${{ github.token }}
+#         run: |
+#           cd dapxexuyenviet.vn
+#           git submodule update --init --recursive
+#           cd pages
+#           git fetch
+#           git checkout origin/main
+#           cd ..
+#           if git diff --quiet; then
+#             echo "No changes to commit"
+#           else
+#             git add .
+#             git commit -m "Update pages - $(date +%Y-%m-%d)"
+#             git push https://${GITHUB_TOKEN}@github.com/dapxexuyenviet/dapxexuyenviet.github.io.git HEAD:main
+#           fi
