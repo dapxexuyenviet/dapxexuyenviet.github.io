@@ -42,7 +42,6 @@ jobs:
           for file in *.mdx; do
             mv -- "$file" "${file%.mdx}.md"
           done
-          cd ..
           if git diff --quiet; then
             echo "No changes to commit"
           else
