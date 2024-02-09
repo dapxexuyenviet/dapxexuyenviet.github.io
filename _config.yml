@@ -15,7 +15,7 @@ author:
 # Aux links for the upper right navigation
 aux_links:
   "Đạp xe xuyên Việt on GitHub":
-    - "//github.com/dapxexuyenviet.github.io"
+    - "//github.com/dapxexuyenviet/dapxexuyenviet.github.io"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: false
