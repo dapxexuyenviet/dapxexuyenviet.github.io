@@ -43,6 +43,7 @@ jobs:
           cd wiki
           git fetch
           git checkout origin/main
+          for file in *.mdx; mv --  "$file" "${file%.mdx}.md";
           cd ..
           if git diff --quiet; then
             echo "No changes to commit"
