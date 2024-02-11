@@ -1,7 +1,6 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "index": "Giới thiệu",
+  "docs": "Tài liệu",
   "about": {
     "title": "About",
     "type": "page"
@@ -9,7 +8,7 @@
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/minhxuvi",
+    "href": "https://fb.com/xuvitravel",
     "newWindow": true
   }
 }

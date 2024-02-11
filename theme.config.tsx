@@ -1,18 +1,24 @@
-import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import React from "react";
+import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <span>Đạp xe xuyên Việt</span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: "https://github.com/dapxexuyenviet/dapxexuyenviet.github.io",
   },
-  chat: {
-    link: 'https://discord.com',
-  },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  // chat: {
+  //   link: "https://www.facebook.com/xuvitravel",
+  // },
+  docsRepositoryBase:
+    "https://github.com/dapxexuyenviet/dapxexuyenviet.github.io/tree/main",
   footer: {
-    text: 'Nextra Docs Template',
+    text: "Đạp xe xuyên Việt",
   },
-}
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s – XuVi",
+    };
+  },
+};
 
-export default config
+export default config;

@@ -11,4 +11,8 @@ module.exports = withNextra({
     loader: "akamai",
     path: "",
   },
+  i18n: {
+    locales: ["vi-VN"],
+    defaultLocale: "vi-VN",
+  },
 });
