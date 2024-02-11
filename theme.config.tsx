@@ -28,7 +28,6 @@ const config: DocsThemeConfig = {
   },
   head: (
     <>
-      <html lang="vi"></html>
       <meta name="msapplication-TileColor" content="#fff" />
       <meta httpEquiv="Content-Language" content="vi" />
       <meta name="description" content="XuVi: Đạp xe xuyên Việt" />
