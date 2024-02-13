@@ -4,11 +4,5 @@
   "about": {
     "title": "About",
     "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://fb.com/xuvitravel",
-    "newWindow": true
   }
 }
