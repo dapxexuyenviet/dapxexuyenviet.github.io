@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
@@ -16,9 +17,15 @@ const config: DocsThemeConfig = {
   },
 
   useNextSeoProps() {
+    const router = useRouter();
+    const canonicalUrl = (
+      `https://www.dapxexuyenviet.vn` +
+      (router.asPath === "/" ? "" : router.asPath)
+    ).split("?")[0];
+
     return {
       titleTemplate: "%s – XuVi",
-      canonical: "https://www.dapxexuyenviet.vn/",
+      canonical: canonicalUrl,
       twitter: {
         cardType: "summary_large_image",
         site: "@xuvitravel",
