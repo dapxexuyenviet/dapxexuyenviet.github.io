@@ -1,6 +1,8 @@
 {
   "index": "Giới thiệu",
-  "docs": "Tài liệu",
+  "docs": "Tài liệu về tổ chức chương trình",
+  "ky-thuat": "Kỹ thuật xe đạp",
+  "hanh-trang": "Hành trang",
   "about": {
     "title": "About",
     "type": "page"
